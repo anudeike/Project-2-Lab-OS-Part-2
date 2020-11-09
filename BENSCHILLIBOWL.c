@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-bool IsEmpty(BENSCHILLIBOWL* bcb);
-bool IsFull(BENSCHILLIBOWL* bcb);
+bool IsEmpty(BENSCHILLIBOWL* cb);
+bool IsFull(BENSCHILLIBOWL* cb);
 void AddOrderToBack(Order **orders, Order *order);
 
 MenuItem BENSCHILLIBOWLMenu[] = { 
@@ -131,8 +131,8 @@ Order *GetOrder(BENSCHILLIBOWL* cb) {
 }
 
 // Optional helper functions (you can implement if you think they would be useful)
-bool IsEmpty(BENSCHILLIBOWL* bcb) {
-  if (bcb->current_size == 0){
+bool IsEmpty(BENSCHILLIBOWL* cb) {
+  if (cb->current_size == 0){
     return true;
   }
   else{
@@ -140,8 +140,8 @@ bool IsEmpty(BENSCHILLIBOWL* bcb) {
   }
 }
 
-bool IsFull(BENSCHILLIBOWL* bcb) {
-  if (bcb->current_size == bcb->max_size){
+bool IsFull(BENSCHILLIBOWL* cb) {
+  if (cb->current_size == cb->max_size){
     return true;
   }
   else{
