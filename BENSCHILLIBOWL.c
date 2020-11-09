@@ -20,18 +20,35 @@ MenuItem BENSCHILLIBOWLMenu[] = {
     "BensVeggieBurger",
     "BensOnionRings",
 };
+
 int BENSCHILLIBOWLMenuLength = 10;
 
 /* Select a random item from the Menu and return it */
 MenuItem PickRandomMenuItem() {
-    return NULL;
+    return BENSCHILLIBOWLMenu[rand() % BENSCHILLIBOWLMenuLength];
 }
 
-/* Allocate memory for the Restaurant, then create the mutex and condition variables needed to instantiate the Restaurant */
-
+/* Allocate memory for the Restaurant, then create the mutex and condition variables needed to instantiate the Restaurant */ 
+// DONE
 BENSCHILLIBOWL* OpenRestaurant(int max_size, int expected_num_orders) {
+
+  // Allocate memory
+    BENSCHILLIBOWL *cb= (BENSCHILLIBOWL*) malloc(sizeof(BENSCHILLIBOWL));
+    cb->orders = NULL;
+    cb->current_size = 0;
+    cb->max_size = max_size;
+	  cb->next_order_number = 1;
+    cb->orders_handled = 0;
+    cb->expected_num_orders = expected_num_orders;
+  
+    // generate the mutex. set the conditions that will be needed to create a new resturant in the separate thread
+    pthread_mutex_init(&(cb->mutex), NULL);
+    pthread_cond_init(&(cb->can_add_orders), NULL);
+    pthread_cond_init(&(cb->can_get_orders), NULL);
+
+    // notify that the resturant is open
     printf("Restaurant is open!\n");
-    return NULL;
+    return cb;
 }
 
 

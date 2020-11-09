@@ -4,11 +4,10 @@
 
 #include "BENSCHILLIBOWL.h"
 
-// Feel free to play with these numbers! This is a great way to
-// test your implementation.
-#define BENSCHILLIBOWL_SIZE 100
-#define NUM_CUSTOMERS 90
-#define NUM_COOKS 10
+// You can CHange Numbers
+#define BENSCHILLIBOWL_SIZE 20
+#define NUM_CUSTOMERS 50
+#define NUM_COOKS 17
 #define ORDERS_PER_CUSTOMER 3
 #define EXPECTED_NUM_ORDERS NUM_CUSTOMERS * ORDERS_PER_CUSTOMER
 
@@ -24,7 +23,7 @@ BENSCHILLIBOWL *bcb;
  */
 void* BENSCHILLIBOWLCustomer(void* tid) {
     int customer_id = (int)(long) tid;
-	return NULL;
+	  return NULL;
 }
 
 /**
